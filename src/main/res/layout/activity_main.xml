@@ -1,63 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pioneer.bottomtab.MainActivity"
-    >
+    tools:context="com.pioneer.bottomtab.MainActivity">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+    <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/radio" />
+
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bottom_tab_bg"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <RadioButton
+                android:id="@+id/home"
+                style="@style/style_radiobutton"
+                android:checked="true"
+                android:drawableTop="@drawable/select_home"
+                android:text="首页" />
+
+            <RadioButton
+                android:id="@+id/newscenter"
+                style="@style/style_radiobutton"
+                android:drawableTop="@drawable/select_newscenter"
+                android:text="新闻中心" />
+
+            <RadioButton
+                android:id="@+id/smartservice"
+                style="@style/style_radiobutton"
+                android:drawableTop="@drawable/select_smartservice"
+                android:text="智慧服务" />
+
+            <RadioButton
+                android:id="@+id/govaffairs"
+                style="@style/style_radiobutton"
+                android:drawableTop="@drawable/select_govaff"
+                android:text="政务" />
+
+            <RadioButton
+                android:id="@+id/setting"
+                style="@style/style_radiobutton"
+                android:drawableTop="@drawable/select_setting"
+                android:text="设置" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="320dp"
         android:layout_height="match_parent"
-        android:layout_above="@id/radio"
+        android:id="@+id/sliding_menu"
+        app:headerLayout="@layout/layout_header"
+        app:menu="@menu/menu_left"
+        android:layout_gravity="start"
         />
 
-    <RadioGroup
-        android:id="@+id/radio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:weightSum="5"
-        android:background="@drawable/bottom_tab_bg"
-        >
-
-        <RadioButton
-            android:id="@+id/home"
-            android:drawableTop="@drawable/select_home"
-            android:text="首页"
-            android:checked="true"
-            style="@style/style_radiobutton"
-            />
-
-        <RadioButton
-            android:id="@+id/newscenter"
-            android:drawableTop="@drawable/select_newscenter"
-            android:text="新闻中心"
-            style="@style/style_radiobutton" />
-
-        <RadioButton
-            android:id="@+id/smartservice"
-            android:drawableTop="@drawable/select_smartservice"
-            android:text="智慧服务"
-            style="@style/style_radiobutton"
-            />
-
-        <RadioButton
-            android:id="@+id/govaffairs"
-            android:drawableTop="@drawable/select_govaff"
-            android:text="政务"
-            style="@style/style_radiobutton"
-            />
-
-        <RadioButton
-            android:id="@+id/setting"
-            android:drawableTop="@drawable/select_setting"
-            android:text="设置"
-            style="@style/style_radiobutton"
-            />
-    </RadioGroup>
-
-</RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

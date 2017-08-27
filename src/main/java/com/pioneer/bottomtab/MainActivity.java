@@ -1,11 +1,14 @@
 package com.pioneer.bottomtab;
 
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.pioneer.bottomtab.fragment.GovaffFragment;
 import com.pioneer.bottomtab.fragment.HomeFragment;
@@ -33,6 +36,11 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     RadioButton home;
     @BindView(R.id.viewpager)
     ViewPager viewpager;
+    @BindView(R.id.sliding_menu)
+    NavigationView mNavigationView;
+    private View headerView;
+    private ImageView mUserHeadView;
+    private TextView mTextUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     @Override
     public void onPageSelected(int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 home.setChecked(true);
                 break;
@@ -110,4 +118,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     public void onPageScrollStateChanged(int state) {
 
     }
+
+
+
 }
